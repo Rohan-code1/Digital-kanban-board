@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Kanban Board</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header class="header">
+        <h1>Dynamic Kanban Board</h1>
+        <p class="subtitle">
+          Organize your tasks efficiently with drag & drop functionality
+        </p>
+      </header>
+
+      <!-- Task Input Section -->
+      <section class="task-input-section">
+        <div class="task-form">
+          <h3><span class="plus-icon">+</span> Add New Task</h3>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="task-title">Task Title</label>
+              <input
+                type="text"
+                id="task-title"
+                placeholder="Enter task title..."
+                class="input-field"
+              />
+            </div>
+            <div class="input-group">
+              <label for="task-description">Description</label>
+              <input
+                type="text"
+                id="task-description"
+                placeholder="Enter task description..."
+                class="input-field"
+              />
+            </div>
+          </div>
+          <button id="add-task-btn" class="add-task-btn">
+            <span class="plus-icon">+</span> Add Task
+          </button>
+        </div>
+      </section>
+
+      <!-- Kanban Board -->
+      <main class="kanban-board">
+        <div class="kanban-column" data-column="todo">
+          <div class="column-header">
+            <h2>To Do</h2>
+            <span class="task-count" id="todo-count">0</span>
+          </div>
+          <div class="tasks-container" id="todo-tasks">
+            <div class="empty-state">
+              <p>No tasks yet</p>
+              <small>Drag tasks here or create a new one</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="kanban-column" data-column="inprogress">
+          <div class="column-header">
+            <h2>In Progress</h2>
+            <span class="task-count" id="inprogress-count">0</span>
+          </div>
+          <div class="tasks-container" id="inprogress-tasks">
+            <div class="empty-state">
+              <p>No tasks yet</p>
+              <small>Drag tasks here or create a new one</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="kanban-column" data-column="done">
+          <div class="column-header">
+            <h2>Done</h2>
+            <span class="task-count" id="done-count">0</span>
+          </div>
+          <div class="tasks-container" id="done-tasks">
+            <div class="empty-state">
+              <p>No tasks yet</p>
+              <small>Drag tasks here or create a new one</small>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Edit Task</h3>
+        <div class="input-group">
+          <label for="edit-title">Task Title</label>
+          <input type="text" id="edit-title" class="input-field" />
+        </div>
+        <div class="input-group">
+          <label for="edit-description">Description</label>
+          <input type="text" id="edit-description" class="input-field" />
+        </div>
+        <div class="modal-actions">
+          <button id="save-edit-btn" class="save-btn">Save</button>
+          <button id="cancel-edit-btn" class="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
